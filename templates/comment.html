@@ -1,0 +1,13 @@
+<html>
+<head>
+<title>Sistema de Votação</title>
+</head>
+<body>
+<a href="{% url 'voting:index'%}">Voltar</a>
+<form action='', method='POST'>
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="submit" value="Comentar">
+</form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Sistema de Votação</title>
+</head>
+<body>
+{%if request.user.is_authenticated%}
+<div style = 'text-align: center;'>    
+<a href='/logout/'><button>Logout</button></a>
+<a href='/criarproposta/'><button>Criar proposta</button></a>
+</div>
+{%else%}
+<div style = 'text-align: center;'>
+    <a href='/login/'><button>Login</button></a>
+    <a href='/usuarios/novo/'><button>Cadastre-se</button></a>
+</div>
+{%endif%}
+<div>
+    <h1>Lista de propostas:</h1>
+{%for x in object_list%}
+<ul>
+    <li><a href="{% url 'voting:vote' x.pk %}">{{x.name}}</a></li>
+    {{x.description}}
+    <!-- {%if request.user.is_authenticated%}
+    <button type="submit">Sim</button>
+    <button type="submit">Não</button>
+    <br>
+    <label for "message">Comentário</label>
+    <textarea type="message" name="comment"></textarea>
+    </br>
+    {%endif%} -->
+</ul>
+{%endfor%}
+</div>
+</body>
+</html>

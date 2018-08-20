@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Sistema de Votação</title>
+</head>
+<body>
+<div style = 'text-align: center;'>
+    <h1>Login</h1>
+</div>
+<div style = 'text-align: center;'>
+<form action='', method='POST'>
+    {%csrf_token%}
+    {{form.as_p}}
+    <input type="submit" value="Entrar">
+</form>
+</div>
+</body>
+</html>

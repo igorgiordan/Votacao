@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Sistema de Votação</title>
+</head>
+<body>
+<a href="{% url 'voting:index'%}">Voltar</a>
+<div>
+{%if request.user.is_authenticated%}
+<h2>{{object.name}}</h2>
+<p>{{object.description}}</p>
+<a href='/votosim/'><button type="submit">Voto</button></a>
+</div>
+<div>
+<a href='/comentar/'><button type="submit">Comentar</button></a>
+<!-- <a href="{% url 'voting:comentarios' object.pk %}"><button type="submit">Comentários</button></a> -->
+{%else%}
+<h2>{{object.name}}</h2>
+<p>{{object.description}}</p>
+{%endif%}
+<h1> Comentários </h1>
+    {%for a in comments%}
+    <ul>
+        <li>{{a.user}} - {{a.text}} </a></li>   
+    </ul>
+    {%endfor%}
+</div>
+</body>
+</html>

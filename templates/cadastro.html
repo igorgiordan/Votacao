@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Sistema de Votação</title>
+</head>
+<body>
+<div style = 'text-align: center;'>
+<h1>Cadastro</h1>
+<form action='', method='POST'>
+    {%csrf_token%}
+    {% for field in form.visible_fields %}
+    <span class="txt1 p-b-11">
+        {{ field.label }}
+    </span>
+  <div class="wrap-input100 validate-input m-b-36">
+      {{ field }}
+      <span class="focus-input100"></span>
+      {% for error in field.errors %}
+        <span class="help-block">{{ error }}</span>
+      {% endfor %}
+    </div>
+    
+{% endfor %}
+<input type="submit" value="Cadastrar">
+</form>
+</div>
+</body>
+</html>

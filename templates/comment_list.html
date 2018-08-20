@@ -1,0 +1,14 @@
+<html>
+<head>
+<title>Sistema de Votação</title>
+</head>
+<body>
+<a href="{% url 'voting:index'%}">Voltar</a>
+<h1> Comentários </h1>
+    {%for a in comments%}
+    <ul>
+        <li>{{a.user}} - {{a.text}} </a></li>   
+    </ul>
+    {%endfor%}
+</body>
+</html>
